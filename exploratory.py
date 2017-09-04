@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-from clean import clean_train, partial_clean_train
+from clean import train, clean_train, partial_clean_train
 
 
 # The following code assumes data as cleaned up in clean.py
@@ -12,8 +12,8 @@ sns.set_style("darkgrid")
 sns.distplot(clean_train['SalePrice'])
 
 # Get a correlation for numerical features and output a heatmap of correlations
-corr_frame = clean_train.corr()
-sns.heatmap(pd.DataFrame(corr_frame.loc['SalePrice']))
+corr_frame = train.corr()
+sns.heatmap(corr_frame)
 
 # Output strip plots of categorical variables
 for num, col in enumerate(partial_clean_train.columns):
